@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import './App.css';
+import uuid from 'uuid/v4';
 
 const initialTodos = [
   {
-    id: 'a',
+    id: uuid(),
     task: 'Learn React hooks',
     complete: true
   },
   {
-    id: 'b',
+    id: uuid(),
     task: 'Learn postgreSQL',
     complete: false
   },
   {
-    id: 'c',
+    id: uuid(),
     task: 'Learn GraphQL/Apollo Client',
     complete: false
   }
@@ -29,11 +30,13 @@ function App() {
 
   const handleSubmit = event => {
     if (task) {
-      // add new todo item
+      setTodos(todos.concat({ id: uuid(), task, complete: false }));
     }
     setTask('');
-
     event.preventDefault();
+  };
+  const handleChangeCheckbox = event => {
+    // stuff
   };
 
   return (
@@ -42,7 +45,10 @@ function App() {
       <ul>
         {todos.map(todo => (
           <li key={todo.id}>
-            <label>{todo.task}</label>
+            <label>
+              <input type="checkbox" checked={todo.complete} onChange={handleChangeCheckbox} />
+              {todo.task}
+            </label>
           </li>
         ))}
       </ul>
