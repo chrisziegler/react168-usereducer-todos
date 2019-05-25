@@ -21,39 +21,61 @@ const initialTodos = [
 ];
 
 function App() {
-  const [todos, setTodos] = useState(initialTodos);
   const [task, setTask] = useState('');
+  const [todos, setTodos] = useState(initialTodos);
 
-  const handleChangeInput = event => {
-    setTask(event.target.value);
+  const handleChangeInput = e => {
+    setTask(e.target.value);
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = e => {
     if (task) {
-      setTodos(todos.concat({ id: uuid(), task, complete: false }));
+      setTodos(
+        todos.concat({
+          id: uuid(),
+          task,
+          complete: false
+        })
+      );
     }
     setTask('');
-    event.preventDefault();
-  };
-  const handleChangeCheckbox = event => {
-    // stuff
+    e.preventDefault();
   };
 
+  const handleChangeCheckbox = id => {
+    setTodos(
+      todos.map(todo => {
+        if (todo.id === id) {
+          return { ...todo, complete: !todo.complete };
+        } else {
+          return todo;
+        }
+      })
+    );
+  };
   return (
     <div className="App">
       <h1>Todos</h1>
       <ul>
         {todos.map(todo => (
           <li key={todo.id}>
-            <label>
-              <input type="checkbox" checked={todo.complete} onChange={handleChangeCheckbox} />
-              {todo.task}
-            </label>
+            <input
+              type="checkbox"
+              checked={todo.complete}
+              onChange={() =>
+                handleChangeCheckbox(todo.id)
+              }
+            />
+            <label>{todo.task}</label>
           </li>
         ))}
       </ul>
       <form onSubmit={handleSubmit}>
-        <input type="text" value={task} onChange={handleChangeInput} />
+        <input
+          type="text"
+          value={task}
+          onChange={handleChangeInput}
+        />
         <button type="submit">Add Todo</button>
       </form>
     </div>
