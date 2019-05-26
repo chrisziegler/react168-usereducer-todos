@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import './App.css';
 import uuid from 'uuid/v4';
 
@@ -6,23 +6,69 @@ const initialTodos = [
   {
     id: uuid(),
     task: 'Learn React hooks',
-    complete: true
+    complete: true,
   },
   {
     id: uuid(),
     task: 'Learn postgreSQL',
-    complete: false
+    complete: false,
   },
   {
     id: uuid(),
     task: 'Learn GraphQL/Apollo Client',
-    complete: false
-  }
+    complete: false,
+  },
 ];
+
+const filterReducer = (state, action) => {
+  switch (action.type) {
+    case 'SHOW_ALL':
+      return 'ALL';
+    case 'SHOW_COMPLETE':
+      return 'COMPLETE';
+    case 'SHOW_INCOMPLETE':
+      return 'INCOMPLETE';
+    default:
+      throw new Error();
+  }
+};
 
 function App() {
   const [task, setTask] = useState('');
   const [todos, setTodos] = useState(initialTodos);
+  const [filter, dispatchFilter] = useReducer(
+    filterReducer,
+    'ALL',
+  );
+
+  // We are conditionally setting the value of filteredArray based
+  // on the action that was dispatched by the button we clicked on
+  // this version of filteredArray is then rendered in our return statement JSX
+  const filteredTodos = todos.filter(todo => {
+    if (filter === 'ALL') {
+      return true;
+    }
+    if (filter === 'COMPLETE' && todo.complete) {
+      return true;
+    }
+
+    if (filter === 'INCOMPLETE' && !todo.complete) {
+      return true;
+    }
+    return false;
+  });
+
+  const handleShowAll = () => {
+    dispatchFilter({ type: 'SHOW_ALL' });
+  };
+
+  const handleShowComplete = () => {
+    dispatchFilter({ type: 'SHOW_COMPLETE' });
+  };
+
+  const handleShowIncomplete = () => {
+    dispatchFilter({ type: 'SHOW_INCOMPLETE' });
+  };
 
   const handleChangeInput = e => {
     setTask(e.target.value);
@@ -34,8 +80,8 @@ function App() {
         todos.concat({
           id: uuid(),
           task,
-          complete: false
-        })
+          complete: false,
+        }),
       );
     }
     setTask('');
@@ -50,14 +96,31 @@ function App() {
         } else {
           return todo;
         }
-      })
+      }),
     );
   };
   return (
     <div className="App">
       <h1>Todos</h1>
+      <div className="controls">
+        <button type="button" onClick={handleShowAll}>
+          Show All
+        </button>
+        <button
+          type="button"
+          onClick={handleShowComplete}
+        >
+          Show Complete
+        </button>
+        <button
+          type="button"
+          onClick={handleShowIncomplete}
+        >
+          Show Incomplete
+        </button>
+      </div>
       <ul>
-        {todos.map(todo => (
+        {filteredTodos.map(todo => (
           <li key={todo.id}>
             <input
               type="checkbox"
