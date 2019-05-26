@@ -41,9 +41,6 @@ function App() {
     'ALL',
   );
 
-  // We are conditionally setting the value of filteredArray based
-  // on the action that was dispatched by the button we clicked on
-  // this version of filteredArray is then rendered in our return statement JSX
   const filteredTodos = todos.filter(todo => {
     if (filter === 'ALL') {
       return true;
