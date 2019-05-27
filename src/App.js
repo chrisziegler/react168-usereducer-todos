@@ -1,24 +1,9 @@
 import React, { useState, useReducer } from 'react';
+import Filter from './components/Filter';
+import initialTodos from './data/mockData';
+
 import './App.css';
 import uuid from 'uuid/v4';
-
-const initialTodos = [
-  {
-    id: uuid(),
-    task: 'Learn React hooks',
-    complete: true,
-  },
-  {
-    id: uuid(),
-    task: 'Learn postgreSQL',
-    complete: false,
-  },
-  {
-    id: uuid(),
-    task: 'Learn GraphQL/Apollo Client',
-    complete: false,
-  },
-];
 
 const filterReducer = (state, action) => {
   switch (action.type) {
@@ -55,18 +40,6 @@ function App() {
     return false;
   });
 
-  const handleShowAll = () => {
-    dispatchFilter({ type: 'SHOW_ALL' });
-  };
-
-  const handleShowComplete = () => {
-    dispatchFilter({ type: 'SHOW_COMPLETE' });
-  };
-
-  const handleShowIncomplete = () => {
-    dispatchFilter({ type: 'SHOW_INCOMPLETE' });
-  };
-
   const handleChangeInput = e => {
     setTask(e.target.value);
   };
@@ -98,24 +71,8 @@ function App() {
   };
   return (
     <div className="App">
+      <Filter dispatch={dispatchFilter} />
       <h1>Todos</h1>
-      <div className="controls">
-        <button type="button" onClick={handleShowAll}>
-          Show All
-        </button>
-        <button
-          type="button"
-          onClick={handleShowComplete}
-        >
-          Show Complete
-        </button>
-        <button
-          type="button"
-          onClick={handleShowIncomplete}
-        >
-          Show Incomplete
-        </button>
-      </div>
       <ul>
         {filteredTodos.map(todo => (
           <li key={todo.id}>
