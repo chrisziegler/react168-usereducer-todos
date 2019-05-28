@@ -27,3 +27,7 @@ ul {
 form {
   margin-top: 1rem;
 }
+
+.controls {
+  text-align: center;
+}
