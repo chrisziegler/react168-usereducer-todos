@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import uuid from 'uuid/v4';
+import { TodoContext } from '../context/dispatch';
 
-const AddTodo = ({ dispatch }) => {
+const AddTodo = () => {
+  const dispatch = useContext(TodoContext);
   const [task, setTask] = useState('');
 
   const handleSubmit = event => {
@@ -23,11 +25,7 @@ const AddTodo = ({ dispatch }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={task}
-        onChange={handleChange}
-      />
+      <input type="text" value={task} onChange={handleChange} />
       <button type="submit">Add Todo</button>
     </form>
   );
