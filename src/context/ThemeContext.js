@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import theme from './theme.js';
 
 const defaultContextData = {
@@ -22,7 +22,7 @@ const useEffectDarkMode = () => {
       dark: lsDark,
       hasThemeMounted: true,
     });
-  }, []);
+  }, [themeState]);
 
   return [themeState, setThemeState];
 };
@@ -45,7 +45,7 @@ const ThemeProvider = ({ children }) => {
     : theme('light');
 
   return (
-    <ThemeProvider theme={computedTheme}>
+    <StyledThemeProvider theme={computedTheme}>
       <ThemeContext.Provider
         value={{
           dark: themeState.dark,
@@ -54,7 +54,7 @@ const ThemeProvider = ({ children }) => {
       >
         {children}
       </ThemeContext.Provider>
-    </ThemeProvider>
+    </StyledThemeProvider>
   );
 };
 
