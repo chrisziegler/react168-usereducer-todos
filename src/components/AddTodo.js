@@ -3,6 +3,8 @@ import uuid from 'uuid/v4';
 import { TodoContext } from '../context/dispatch';
 
 const AddTodo = () => {
+  // The Provider wrap in App.js makes sure dispatchTodos is available
+  // here we just need to use it, dispatchTodos is the method to use todoReducer
   const dispatch = useContext(TodoContext);
   const [task, setTask] = useState('');
 

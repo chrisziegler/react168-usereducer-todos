@@ -1,3 +1,4 @@
+// Here state will be initialTodos, or todos (if it has been changed)
 const todoReducer = (state, action) => {
   switch (action.type) {
     case 'DO_TODO':

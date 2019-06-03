@@ -1,17 +1,24 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import { Filter, TodoList, AddTodo } from './components';
 import { filterReducer, todoReducer } from './reducers';
 import { TodoContext } from './context/dispatch';
 
 import './App.css';
 
-const initialTodos = require('./data/mockData.json');
+const mockTodos = require('./data/mockData.json');
+const initialTodos =
+  JSON.parse(localStorage.getItem('todos')) || mockTodos;
 
 function App() {
   const [todos, dispatchTodos] = useReducer(
     todoReducer,
     initialTodos,
   );
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
   const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
 
   // filteredTodos gets the value of todos from dispatchTodos reducer
