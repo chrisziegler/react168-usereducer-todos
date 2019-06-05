@@ -1,15 +1,61 @@
 import React, { useReducer, useEffect } from 'react';
+import styled from 'styled-components';
 import { Filter, TodoList, AddTodo } from './components';
 import { filterReducer, todoReducer } from './reducers';
 import { TodoContext } from './context/dispatch';
+import { useTheme } from './context/ThemeContext';
 
-import './App.css';
+// import './App.css';
 
 const mockTodos = require('./data/mockData.json');
 const initialTodos =
   JSON.parse(localStorage.getItem('todos')) || mockTodos;
 
+const Wrapper = styled('div')`
+  background: ${props => props.theme.background};
+  width: 100vw;
+  height: 100vh;
+  padding-top: 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen';
+  h1 {
+    color: ${props => props.theme.body};
+  }
+  label {
+    color: ${props => props.theme.body};
+  }
+`;
+
+const Container = styled('div')`
+  width: 60vw;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid ${props => props.theme.body};
+  box-shadow: 3px 3px 4px rgb(0, 0, 0, 0.04);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+form {
+  margin-top: 1rem;
+}
+`;
+
 function App() {
+  const themeState = useTheme();
   const [todos, dispatchTodos] = useReducer(
     todoReducer,
     initialTodos,
@@ -39,13 +85,20 @@ function App() {
   });
 
   return (
-    <TodoContext.Provider value={dispatchTodos}>
-      <div className="App">
-        <Filter dispatch={dispatchFilter} />
-        <TodoList todos={filteredTodos} />
-        <AddTodo />
-      </div>
-    </TodoContext.Provider>
+    <Wrapper>
+      <TodoContext.Provider value={dispatchTodos}>
+        <Container>
+          <button onClick={() => themeState.toggle()}>
+            {themeState.dark
+              ? 'Switch to Light Mode'
+              : 'Switch to Dark Mode'}
+          </button>
+          <Filter dispatch={dispatchFilter} />
+          <TodoList todos={filteredTodos} />
+          <AddTodo />
+        </Container>
+      </TodoContext.Provider>
+    </Wrapper>
   );
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import theme from './theme.js';
+import theme from '../theme/theme.js';
 
 const defaultContextData = {
   dark: false,
