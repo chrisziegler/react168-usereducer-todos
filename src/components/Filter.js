@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../App.css';
 const Filter = ({ dispatch }) => {
   const handleShowAll = () => {
     dispatch({ type: 'SHOW_ALL' });
@@ -18,16 +18,10 @@ const Filter = ({ dispatch }) => {
       <button type="button" onClick={handleShowAll}>
         Show All
       </button>
-      <button
-        type="button"
-        onClick={handleShowComplete}
-      >
+      <button type="button" onClick={handleShowComplete}>
         Show Complete
       </button>
-      <button
-        type="button"
-        onClick={handleShowIncomplete}
-      >
+      <button type="button" onClick={handleShowIncomplete}>
         Show Incomplete
       </button>
     </div>
