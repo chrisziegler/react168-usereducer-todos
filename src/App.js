@@ -5,7 +5,7 @@ import { filterReducer, todoReducer } from './reducers';
 import { TodoContext } from './context/dispatch';
 import { useTheme } from './context/ThemeContext';
 
-// import './App.css';
+import './App.css';
 
 const mockTodos = require('./data/mockData.json');
 const initialTodos =
@@ -18,11 +18,14 @@ const Wrapper = styled('div')`
   padding-top: 3rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
     'Oxygen';
-  h1 {
+  h1,
+  h2,
+  h3,
+  h4 {
     color: ${props => props.theme.body};
-  }
-  label {
-    color: ${props => props.theme.body};
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: center;
   }
 `;
 
@@ -31,18 +34,12 @@ const Container = styled('div')`
   margin: 0 auto;
   padding: 1rem;
   border: 1px solid ${props => props.theme.body};
-  box-shadow: 3px 3px 4px rgb(0, 0, 0, 0.04);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 15px 40px rgba(0, 0, 0, 0.05);
+  label {
+    color: ${props => props.theme.body};
+  }
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: 1.4rem;
-  font-weight: 400;
-  text-align: center;
-}
+
 
 ul {
   list-style: none;
@@ -88,11 +85,16 @@ function App() {
     <Wrapper>
       <TodoContext.Provider value={dispatchTodos}>
         <Container>
-          <button onClick={() => themeState.toggle()}>
+          <label>
             {themeState.dark
               ? 'Switch to Light Mode'
               : 'Switch to Dark Mode'}
-          </button>
+            <input
+              type="checkbox"
+              checked={null}
+              onChange={() => themeState.toggle()}
+            />
+          </label>
           <Filter dispatch={dispatchFilter} />
           <TodoList todos={filteredTodos} />
           <AddTodo />

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+
 const Filter = ({ dispatch }) => {
   const handleShowAll = () => {
     dispatch({ type: 'SHOW_ALL' });
