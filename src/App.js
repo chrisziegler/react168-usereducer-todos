@@ -34,21 +34,20 @@ const Container = styled('div')`
   margin: 0 auto;
   padding: 1rem;
   border: 1px solid ${props => props.theme.body};
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 15px 40px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2),
+    0 15px 40px rgba(0, 0, 0, 0.05);
   label {
     color: ${props => props.theme.body};
   }
-}
 
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-form {
-  margin-top: 1rem;
-}
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  form {
+    margin-top: 1rem;
+  }
 `;
 
 function App() {
@@ -64,9 +63,6 @@ function App() {
 
   const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
 
-  // filteredTodos gets the value of todos from dispatchTodos reducer
-  // which has an initial value of initialTodos (the mock data)
-  // then it looks at the value of filter, which has an initial value of 'ALL'
   const filteredTodos = todos.filter(todo => {
     if (filter === 'ALL') {
       return true;
