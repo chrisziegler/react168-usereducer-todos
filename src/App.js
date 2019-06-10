@@ -23,7 +23,7 @@ const Wrapper = styled('div')`
   h3,
   h4 {
     color: ${props => props.theme.body};
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 400;
     text-align: center;
   }
@@ -36,12 +36,13 @@ const Container = styled('div')`
   border: 1px solid ${props => props.theme.body};
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2),
     0 15px 40px rgba(0, 0, 0, 0.05);
+  span {
+    color: ${props => props.theme.body};
+    padding-left: 10px;
+    margin-right: 1rem;
+  }
   label {
     color: ${props => props.theme.body};
-    margin-left: 10px;
-  }
-  > label input {
-    margin: 0 0 12px 12px;
   }
 
   ul {
@@ -67,6 +68,9 @@ function App() {
 
   const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
 
+  // filteredTodos gets the value of todos from dispatchTodos reducer
+  // which has an initial value of initialTodos (the mock data)
+  // then it looks at the value of filter, which has an initial value of 'ALL'
   const filteredTodos = todos.filter(todo => {
     if (filter === 'ALL') {
       return true;
@@ -96,7 +100,7 @@ function App() {
               checked={null}
               onChange={() => themeState.toggle()}
             />
-            <span className="slider round" />
+            <span class="slider round" />
           </label>
           <Filter dispatch={dispatchFilter} />
           <TodoList todos={filteredTodos} />
