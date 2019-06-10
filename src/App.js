@@ -57,9 +57,7 @@ function App() {
             }}
           >
             <span>
-              {themeState.dark
-                ? 'Switch to Light Mode'
-                : 'Switch to Dark Mode'}
+              {themeState.dark ? 'Light Theme' : 'Dark Theme'}
             </span>
             <label className="switch">
               <input
