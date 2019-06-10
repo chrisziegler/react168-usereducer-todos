@@ -16,12 +16,18 @@ const useEffectDarkMode = () => {
     hasThemeMounted: false,
   });
   React.useEffect(() => {
+    /* If dark is set to true in localStorage, we update the state
+     to reflect this and the theme that will be passed to our Styled 
+     Theme Provider will be the dark one. */
     const lsDark = localStorage.getItem('dark') === 'true';
+    // Else, we’ll keep the default state which means that the app will render in light mode
     setThemeState({
       ...themeState,
       dark: lsDark,
       hasThemeMounted: true,
     });
+    // Doing this makes sure that we only call this useEffect when the ThemeProvider component
+    // mounts, or themeState is updated
   }, [themeState]);
 
   return [themeState, setThemeState];

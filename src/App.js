@@ -23,7 +23,7 @@ const Wrapper = styled('div')`
   h3,
   h4 {
     color: ${props => props.theme.body};
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
     text-align: center;
   }
@@ -38,6 +38,10 @@ const Container = styled('div')`
     0 15px 40px rgba(0, 0, 0, 0.05);
   label {
     color: ${props => props.theme.body};
+    margin-left: 10px;
+  }
+  > label input {
+    margin: 0 0 12px 12px;
   }
 
   ul {
@@ -81,15 +85,18 @@ function App() {
     <Wrapper>
       <TodoContext.Provider value={dispatchTodos}>
         <Container>
-          <label>
+          <span>
             {themeState.dark
               ? 'Switch to Light Mode'
               : 'Switch to Dark Mode'}
+          </span>
+          <label className="switch">
             <input
               type="checkbox"
               checked={null}
               onChange={() => themeState.toggle()}
             />
+            <span className="slider round" />
           </label>
           <Filter dispatch={dispatchFilter} />
           <TodoList todos={filteredTodos} />
