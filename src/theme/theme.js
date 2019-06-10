@@ -1,19 +1,20 @@
 const white = '#FFFFFF';
 const black = '#161617';
+const darkgray = '#4C4B4B';
 const gray = '#F8F8F9';
-const darkblue = '#483D8B';
-const lightblue = '#00BFFF';
+// const darkblue = '#689fce';
+const lightblue = '#7FAED6';
 
 const themeLight = {
   background: gray,
   body: black,
-  highlight: darkblue,
+  highlight: lightblue,
 };
 
 const themeDark = {
   background: black,
   body: white,
-  highlight: lightblue,
+  highlight: darkgray,
 };
 
 const theme = mode => (mode === 'dark' ? themeDark : themeLight);
