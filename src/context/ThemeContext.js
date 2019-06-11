@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import theme from '../theme/theme.js';
 
 const defaultContextData = {
@@ -17,13 +17,12 @@ const useEffectDarkMode = () => {
   });
   React.useEffect(() => {
     const lsDark = localStorage.getItem('dark') === 'true';
-
+    console.log('useEffect is running');
     setThemeState({
-      ...themeState,
       dark: lsDark,
       hasThemeMounted: true,
     });
-  }, [themeState]);
+  }, []);
 
   return [themeState, setThemeState];
 };
@@ -46,7 +45,7 @@ const ThemeProvider = ({ children }) => {
     : theme('light');
 
   return (
-    <EmotionThemeProvider theme={computedTheme}>
+    <StyledThemeProvider theme={computedTheme}>
       <ThemeContext.Provider
         value={{
           dark: themeState.dark,
@@ -55,7 +54,7 @@ const ThemeProvider = ({ children }) => {
       >
         {children}
       </ThemeContext.Provider>
-    </EmotionThemeProvider>
+    </StyledThemeProvider>
   );
 };
 
