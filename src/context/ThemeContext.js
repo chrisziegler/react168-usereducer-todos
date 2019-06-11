@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
 import theme from '../theme/theme.js';
 
 const defaultContextData = {
@@ -46,7 +46,7 @@ const ThemeProvider = ({ children }) => {
     : theme('light');
 
   return (
-    <StyledThemeProvider theme={computedTheme}>
+    <EmotionThemeProvider theme={computedTheme}>
       <ThemeContext.Provider
         value={{
           dark: themeState.dark,
@@ -55,7 +55,7 @@ const ThemeProvider = ({ children }) => {
       >
         {children}
       </ThemeContext.Provider>
-    </StyledThemeProvider>
+    </EmotionThemeProvider>
   );
 };
 
