@@ -56,7 +56,7 @@ function App() {
               display: 'flex',
             }}
           >
-            <span>
+            <span style={{ fontWeight: 'bold' }}>
               {themeState.dark ? 'Light Theme' : 'Dark Theme'}
             </span>
             <label className="switch">
