@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import uuid from 'uuid/v4';
 import { TodoContext } from '../context/dispatch';
+import '../App.css';
 
 const AddTodo = () => {
   // The Provider wrap in App.js makes sure dispatchTodos is available
@@ -27,8 +28,15 @@ const AddTodo = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={task} onChange={handleChange} />
-      <button type="submit">Add Todo</button>
+      <input
+        type="text"
+        value={task}
+        onChange={handleChange}
+        className="Input-text"
+      />
+      <button type="submit" className="add-button">
+        Add Todo
+      </button>
     </form>
   );
 };

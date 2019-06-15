@@ -1,14 +1,15 @@
 const white = '#FFFFFF';
-const black = '#161617';
-const darkgray = '#4C4B4B';
-const gray = '#F8F8F9';
-// const darkblue = '#689fce';
-const lightblue = '#7FAED6';
+const black = '#000';
+const darkgray = '#38474a';
+const lightgray = '#f9fafb';
+// const teal = '#3CC1DA';
+// const orange = '#FFB615';
+// const red = '#FF2B15';
 
 const themeLight = {
-  background: gray,
+  background: white,
   body: black,
-  highlight: lightblue,
+  highlight: lightgray,
 };
 
 const themeDark = {

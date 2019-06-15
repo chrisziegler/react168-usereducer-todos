@@ -63,9 +63,59 @@ input:checked + .slider:before {
 }
 
 .filter-on {
-  background-color: yellowgreen;
+  background-color: #3cc1da;
 }
 
 .filter-off {
-  background-color: dodgerblue;
+  background-color: #ffb615;
+}
+
+.add-button {
+  font-size: 12px;
+  font-family: 'Lucida Grande';
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: white;
+  display: inline-block;
+  padding: 0.6em 1em;
+  border: 0.1em solid #3e65b3;
+  border-radius: 0 0.37em 0.37em 0;
+  background-image: linear-gradient(#62a6ed, #4b78d6);
+}
+.add-button:hover {
+  background-image: linear-gradient(
+    rgb(26, 175, 238),
+    rgb(4, 132, 217)
+  );
+}
+.add-button:active {
+  background-image: linear-gradient(
+    rgb(3, 155, 218),
+    rgb(3, 110, 197)
+  );
+}
+
+.Input-text {
+  display: inline-block;
+  margin: 0;
+  padding: 0.2em;
+  color: inherit;
+  width: 200px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  border: 1px solid black;
+  border-radius: 0.4rem 0 0 0.4rem;
+  /* transition: box-shadow var(--transitionDuration); */
+}
+
+/* .Input-text::placeholder {
+  color: #B0BEC5;
+} */
+
+.Input-text:focus {
+  outline: none;
+  box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.3);
 }
