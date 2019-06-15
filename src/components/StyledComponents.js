@@ -26,6 +26,7 @@ export const Container = styled('div')`
   border: 1px solid ${props => props.theme.body};
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2),
     0 15px 40px rgba(0, 0, 0, 0.05);
+  border-radius: 0.4rem;
   span {
     color: ${props => props.theme.body};
     font-size: 0.8rem;

@@ -63,23 +63,28 @@ input:checked + .slider:before {
 }
 
 .filter-on {
-  background-color: #3cc1da;
+  background-image: linear-gradient(#62a6ed, #4b78d6);
+  font-size: 12px;
+  color: #fff;
 }
 
 .filter-off {
-  background-color: #ffb615;
+  background-color: #fff;
+  font-size: 12px;
 }
 
 .add-button {
   font-size: 12px;
-  font-family: 'Lucida Grande';
   text-decoration: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: white;
   display: inline-block;
+  height: 31px;
+  vertical-align: bottom;
   padding: 0.6em 1em;
   border: 0.1em solid #3e65b3;
+  border-left: none;
   border-radius: 0 0.37em 0.37em 0;
   background-image: linear-gradient(#62a6ed, #4b78d6);
 }
@@ -100,8 +105,9 @@ input:checked + .slider:before {
   display: inline-block;
   margin: 0;
   padding: 0.2em;
+  vertical-align: bottom;
   color: inherit;
-  width: 200px;
+  width: 210px;
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
