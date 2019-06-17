@@ -3,14 +3,16 @@ import { TodoContext } from '../context/dispatch';
 import styled from 'styled-components';
 
 const Item = styled('div')`
-  width: 60vw;
+  width: 75vw;
+  max-width: 800px;
   margin: 0 auto;
   padding: 1rem;
   background-color: ${props => props.theme.background};
-  border: 1px solid ${props => props.theme.body};
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2),
-    0 15px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04),
+    0 1px 2px rgba(0, 0, 0, 0.02);
   border-radius: 0.4rem;
+  margin-top: 0.5rem;
   span {
     color: ${props => props.theme.body};
     font-size: 0.8rem;

@@ -19,13 +19,14 @@ export const Wrapper = styled('div')`
 `;
 
 export const Header = styled('div')`
-  width: 60vw;
+  width: 75vw;
+  max-width: 800px;
   margin: 0 auto;
   padding: 1rem;
   background-color: ${props => props.theme.highlight};
   border: 1px solid ${props => props.theme.body};
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2),
-    0 15px 40px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+    0 2px 44px rgba(0, 0, 0, 0.05);
   border-radius: 0.4rem;
   span {
     color: ${props => props.theme.body};
@@ -35,9 +36,5 @@ export const Header = styled('div')`
   }
   label {
     color: ${props => props.theme.body};
-  }
-
-  form {
-    margin-top: 1rem;
   }
 `;
