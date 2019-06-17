@@ -8,7 +8,7 @@ const Item = styled('div')`
   margin: 0 auto;
   padding: 1rem;
   background-color: ${props => props.theme.background};
-  border: 1px solid rgb(0, 0, 0, 0.2);
+  border: 1px solid ${props => props.theme.borders};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04),
     0 1px 2px rgba(0, 0, 0, 0.02);
   border-radius: 0.4rem;
@@ -21,6 +21,9 @@ const Item = styled('div')`
   }
   label {
     color: ${props => props.theme.body};
+  }
+  @media (max-width: 768px) {
+    width: 97vw;
   }
 `;
 

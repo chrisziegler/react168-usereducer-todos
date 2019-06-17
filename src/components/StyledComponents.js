@@ -4,7 +4,6 @@ export const Wrapper = styled('div')`
   background: ${props => props.theme.background};
   width: 100vw;
   height: 100vh;
-  padding-top: 3rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
     'Oxygen';
   h1,
@@ -21,7 +20,7 @@ export const Wrapper = styled('div')`
 export const Header = styled('div')`
   width: 75vw;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 3rem auto 0;
   padding: 1rem;
   background-color: ${props => props.theme.highlight};
   border: 1px solid ${props => props.theme.body};
@@ -36,5 +35,12 @@ export const Header = styled('div')`
   }
   label {
     color: ${props => props.theme.body};
+  }
+  @media (max-width: 768px) {
+    width: 100vw;
+    margin: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding-bottom: 0;
   }
 `;

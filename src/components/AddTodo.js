@@ -6,7 +6,6 @@ import styled from 'styled-components';
 
 const Form = styled('div')`
   width: 75vw;
-  max-width: 800px;
   margin: 0.8rem auto;
 
   vertical-align: bottom;
@@ -48,6 +47,9 @@ const Form = styled('div')`
   }
   .add-button:active {
     background-image: linear-gradient(#ff7e70, #ff5442);
+  }
+  @media (max-width: 768px) {
+    width: 97vw;
   }
 `;
 
