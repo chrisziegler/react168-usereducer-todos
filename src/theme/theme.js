@@ -3,15 +3,15 @@ const black = '#000';
 const darkgray = '#38474a';
 const lightgray = '#f9fafb';
 const cornsilk = 'cornsilk';
-const ltblue = '#66CFE2';
+const blue = '#2852da';
 // const teal = '#3CC1DA';
 const orange = '#FF5442';
 // const red = '#FF2B15';
 
 const themeLight = {
-  background: ltblue,
+  background: lightgray,
   body: black,
-  highlight: lightgray,
+  highlight: blue,
 };
 
 const themeDark = {

@@ -9,7 +9,7 @@ const TodoItem = ({ todo }) => {
       id: todo.id,
     });
   return (
-    <li>
+    <div>
       <label>
         <input
           type="checkbox"
@@ -18,7 +18,7 @@ const TodoItem = ({ todo }) => {
         />
         {todo.task}
       </label>
-    </li>
+    </div>
   );
 };
 

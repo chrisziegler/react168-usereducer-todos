@@ -18,7 +18,7 @@ export const Wrapper = styled('div')`
   }
 `;
 
-export const Container = styled('div')`
+export const ControlHeader = styled('div')`
   width: 60vw;
   margin: 0 auto;
   padding: 1rem;
