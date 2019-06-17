@@ -18,7 +18,7 @@ export const Wrapper = styled('div')`
   }
 `;
 
-export const ControlHeader = styled('div')`
+export const Header = styled('div')`
   width: 60vw;
   margin: 0 auto;
   padding: 1rem;
@@ -37,11 +37,6 @@ export const ControlHeader = styled('div')`
     color: ${props => props.theme.body};
   }
 
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
   form {
     margin-top: 1rem;
   }

@@ -4,7 +4,7 @@ import {
   TodoList,
   AddTodo,
   Wrapper,
-  ControlHeader,
+  Header,
 } from './components';
 import { filterReducer, todoReducer } from './reducers';
 import { TodoContext } from './context/dispatch';
@@ -49,7 +49,7 @@ function App() {
   return (
     <Wrapper>
       <TodoContext.Provider value={dispatchTodos}>
-        <ControlHeader>
+        <Header>
           <div
             style={{
               height: '30px',
@@ -70,7 +70,7 @@ function App() {
           </div>
           <Filter dispatch={dispatchFilter} />
           <h1 style={{ color: 'white' }}>Todo's</h1>
-        </ControlHeader>
+        </Header>
         <TodoList todos={filteredTodos} />
         <AddTodo />
       </TodoContext.Provider>
