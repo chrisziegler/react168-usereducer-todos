@@ -6,21 +6,23 @@ import styled from 'styled-components';
 
 const Form = styled('div')`
   width: 75vw;
-  margin: 0.8rem auto;
+  max-width: 880px;
+  margin: 1rem auto;
 
   vertical-align: bottom;
   .input-text {
     display: inline-block;
     margin: 0 auto;
-    padding: 0.2em;
+    padding: 0.2rem 0 0.2rem 1rem;
     width: calc(100% - 84px);
     vertical-align: bottom;
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.4;
+    background-color: ${props => props.theme.input}
     border: 1px solid black;
-    border-radius: 0.4rem 0 0 0.4rem;
+    border-radius: 0.3rem 0 0 0.3rem;
   }
   .input-text:focus {
     outline: none;
@@ -29,12 +31,10 @@ const Form = styled('div')`
   .add-button {
     font-size: 12px;
     text-decoration: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
     color: white;
     width: 84px;
     display: inline-block;
-    height: 31px;
+    height: 35px;
     vertical-align: bottom;
     padding: 0.6em 1em;
     border: 0.1em solid #3e65b3;
@@ -43,10 +43,10 @@ const Form = styled('div')`
     background: #2852da;
   }
   .add-button:hover {
-    background-image: linear-gradient(#ff7e70, #dd1500);
+    background-color: #4C6EDF;
   }
   .add-button:active {
-    background-image: linear-gradient(#ff7e70, #ff5442);
+    background-color: #738EE6;
   }
   @media (max-width: 768px) {
     width: 97vw;
@@ -82,6 +82,11 @@ const AddTodo = () => {
         <input
           type="text"
           value={task}
+          placeholder="Type Todo Reminder Here"
+          onFocus={e => (e.target.placeholder = '')}
+          onBlur={e =>
+            (e.target.placeholder = 'Type Todo Reminder Here')
+          }
           onChange={handleChange}
           className="input-text"
         />

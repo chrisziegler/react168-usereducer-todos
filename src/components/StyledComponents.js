@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled('div')`
+  padding-top: 2rem;
   background: ${props => props.theme.background};
   width: 100vw;
   height: 100vh;
@@ -15,12 +16,15 @@ export const Wrapper = styled('div')`
     font-weight: 400;
     text-align: center;
   }
+  @media (max-width: 768px) {
+    padding-top: 0;
+  }
 `;
 
 export const Header = styled('div')`
   width: 75vw;
-  max-width: 800px;
-  margin: 3rem auto 0;
+  max-width: 880px;
+  margin: 0 auto;
   padding: 1rem;
   background-color: ${props => props.theme.highlight};
   border: 1px solid ${props => props.theme.body};

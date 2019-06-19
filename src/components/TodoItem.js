@@ -3,8 +3,11 @@ import { TodoContext } from '../context/dispatch';
 import styled from 'styled-components';
 
 const Item = styled('div')`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: no-wrap;
   width: 75vw;
-  max-width: 800px;
+  max-width: 880px;
   margin: 0 auto;
   padding: 1rem;
   background-color: ${props => props.theme.background};
@@ -21,6 +24,9 @@ const Item = styled('div')`
   }
   label {
     color: ${props => props.theme.body};
+  }
+  label > input {
+    margin-right: 8px;
   }
   @media (max-width: 768px) {
     width: 97vw;
@@ -44,6 +50,7 @@ const TodoItem = ({ todo }) => {
         />
         {todo.task}
       </label>
+      <a href="#">X</a>
     </Item>
   );
 };
