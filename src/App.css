@@ -62,7 +62,7 @@ input:checked + .slider:before {
 }
 
 .filter-on {
-  background-color: #ffe96f;
+  background-color: #ffb56f;
   font-size: 12px;
 }
 

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { TodoContext } from '../context/dispatch';
+import Checkbox from './Checkbox';
 import styled from 'styled-components';
 
 const Item = styled('div')`
@@ -43,11 +44,7 @@ const TodoItem = ({ todo }) => {
   return (
     <Item>
       <label>
-        <input
-          type="checkbox"
-          checked={todo.complete}
-          onChange={handleChange}
-        />
+        <Checkbox checked={todo.complete} onChange={handleChange} />
         {todo.task}
       </label>
       <a href="#">X</a>
