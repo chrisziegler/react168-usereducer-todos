@@ -37,16 +37,16 @@ const Form = styled('div')`
     height: 35px;
     vertical-align: bottom;
     padding: 0.6em 1em;
-    border: 0.1em solid #3e65b3;
+    border: 0.1em solid #ff6126;
     border-left: none;
     border-radius: 0 0.37em 0.37em 0;
-    background: #2852da;
+    background: #ff6126;
   }
   .add-button:hover {
-    background-color: #4C6EDF;
+    background-color: #FF9D78;
   }
   .add-button:active {
-    background-color: #738EE6;
+    background-color: #DC3E03;
   }
   @media (max-width: 768px) {
     width: 97vw;

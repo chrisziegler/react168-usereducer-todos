@@ -69,7 +69,15 @@ function App() {
             </label>
           </div>
           <Filter dispatch={dispatchFilter} />
-          <h1 style={{ color: 'white' }}>Todo's</h1>
+          <h1
+            style={{
+              color: 'white',
+              fontSize: '2rem',
+              paddingBottom: '1rem',
+            }}
+          >
+            Todo's
+          </h1>
         </Header>
         <TodoList todos={filteredTodos} />
         <AddTodo />

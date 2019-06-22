@@ -12,10 +12,11 @@ const Item = styled('div')`
   margin: 0 auto;
   padding: 1rem;
   background-color: ${props => props.theme.background};
-  border: 1px solid ${props => props.theme.borders};
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04),
-    0 1px 2px rgba(0, 0, 0, 0.02);
-  border-radius: 0.4rem;
+  /* border: 1px solid ${props => props.theme.borders}; */
+  box-shadow: ${props => props.theme.shadow}; 
+  /* border-radius: 0.4rem; */
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
   margin-top: 0.5rem;
   span {
     color: ${props => props.theme.body};
@@ -47,7 +48,24 @@ const TodoItem = ({ todo }) => {
         <Checkbox checked={todo.complete} onChange={handleChange} />
         {todo.task}
       </label>
-      <a href="#">X</a>
+      <div
+        style={{
+          height: '16px',
+          width: '16px',
+          border: '1px solid rgba(0, 0, 0, 0.15)',
+        }}
+      >
+        <span
+          style={{
+            display: 'block',
+            marginLeft: -7,
+            marginTop: -2,
+            color: 'grey',
+          }}
+        >
+          X
+        </span>
+      </div>
     </Item>
   );
 };
