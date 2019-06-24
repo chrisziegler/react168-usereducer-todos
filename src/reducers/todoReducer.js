@@ -23,6 +23,10 @@ const todoReducer = (state, action) => {
         id: action.id,
         complete: false,
       });
+    case 'REMOVE_TODO':
+      return state.filter(todo => {
+        return todo.id !== action.id;
+      });
     default:
       throw new Error();
   }

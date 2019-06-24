@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const Form = styled('div')`
   width: 75vw;
   max-width: 880px;
-  margin: 1rem auto;
+  margin: 1.5rem auto;
 
   vertical-align: bottom;
   .input-text {
@@ -17,11 +17,11 @@ const Form = styled('div')`
     width: calc(100% - 84px);
     vertical-align: bottom;
     font-family: inherit;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 400;
-    line-height: 1.4;
-    background-color: ${props => props.theme.input}
-    border: 1px solid black;
+
+    background-color: ${props => props.theme.input};
+    border: 1px solid #150702;
     border-radius: 0.3rem 0 0 0.3rem;
   }
   .input-text:focus {
@@ -34,19 +34,19 @@ const Form = styled('div')`
     color: white;
     width: 84px;
     display: inline-block;
-    height: 35px;
+    height: 32px;
     vertical-align: bottom;
     padding: 0.6em 1em;
-    border: 0.1em solid #ff6126;
+    border: 0.1em solid #150702;
     border-left: none;
     border-radius: 0 0.37em 0.37em 0;
     background: #ff6126;
   }
   .add-button:hover {
-    background-color: #FF9D78;
+    background-color: #ff9d78;
   }
   .add-button:active {
-    background-color: #DC3E03;
+    background-color: #dc3e03;
   }
   @media (max-width: 768px) {
     width: 97vw;

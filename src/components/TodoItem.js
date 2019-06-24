@@ -42,6 +42,11 @@ const TodoItem = ({ todo }) => {
       type: todo.complete ? 'UNDO_TODO' : 'DO_TODO',
       id: todo.id,
     });
+  const handleDeleteTodo = () =>
+    dispatch({
+      type: 'REMOVE_TODO',
+      id: todo.id,
+    });
   return (
     <Item>
       <label>
@@ -52,7 +57,7 @@ const TodoItem = ({ todo }) => {
         style={{
           height: '16px',
           width: '16px',
-          border: '1px solid rgba(0, 0, 0, 0.15)',
+          border: '1px solid gray',
         }}
       >
         <span
@@ -61,7 +66,9 @@ const TodoItem = ({ todo }) => {
             marginLeft: -7,
             marginTop: -2,
             color: 'grey',
+            cursor: 'pointer',
           }}
+          onClick={handleDeleteTodo}
         >
           X
         </span>

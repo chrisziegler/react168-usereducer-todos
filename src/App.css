@@ -61,12 +61,19 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.filter-on {
-  background-color: #ffb56f;
+button {
+  padding: 3px 10px 3px 10px;
   font-size: 12px;
+}
+
+.filter-on {
+  background-color: #c2124a;
+  border: 1px solid #fff;
+  color: #fff;
 }
 
 .filter-off {
   background-color: #fff;
-  font-size: 12px;
+  border: 1px solid #c2124a;
+  color: #160b07;
 }
