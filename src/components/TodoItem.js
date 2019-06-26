@@ -57,15 +57,17 @@ const TodoItem = ({ todo }) => {
         style={{
           height: '16px',
           width: '16px',
-          border: '1px solid gray',
+          border: '1px solid red',
+          backgroundColor: 'white',
         }}
       >
         <span
           style={{
             display: 'block',
+            fontWeight: 'bold',
             marginLeft: -7,
             marginTop: -2,
-            color: 'grey',
+            color: 'red',
             cursor: 'pointer',
           }}
           onClick={handleDeleteTodo}

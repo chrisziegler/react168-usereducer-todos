@@ -1,13 +1,20 @@
 import React from 'react';
 import TodoItem from './TodoItem';
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
+import './TodoListStyles.css';
 
 const TodoList = ({ todos }) => {
   return (
-    <div className="TodoList">
+    <TransitionGroup>
       {todos.map(todo => (
-        <TodoItem key={todo.id} todo={todo} />
+        <CSSTransition key={todo.id} timeout={400} classNames="item">
+          <TodoItem key={todo.id} todo={todo} />
+        </CSSTransition>
       ))}
-    </div>
+    </TransitionGroup>
   );
 };
 
