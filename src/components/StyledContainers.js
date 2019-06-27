@@ -29,9 +29,6 @@ export const Header = styled('div')`
   background-image: ${props => props.theme.header};
   border-bottom-left-radius: 50% 20%;
   border-bottom-right-radius: 50% 20%;
-  /* border: 1px solid ${props => props.theme.border}; */
-  /* box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15); */
-  /* border-radius: 0.4rem; */
   span {
     color: ${props => props.theme.body};
     font-size: 0.8rem;

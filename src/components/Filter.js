@@ -3,6 +3,11 @@ import '../App.css';
 
 const Filter = ({ dispatch }) => {
   const [filter, setFilter] = useState('show-all');
+  // const [ariaPressed, setAriaPressed] = useState([
+  //   { 'show-all': true },
+  //   { 'show-complete': false},
+  //   { 'show-incomplete': false},
+  // ]);
   const handleShowAll = () => {
     setFilter('show-all');
     dispatch({ type: 'SHOW_ALL' });
@@ -22,6 +27,7 @@ const Filter = ({ dispatch }) => {
     <div className="controls">
       <button
         type="button"
+        aria-pressed={filter === 'show-all'}
         onClick={handleShowAll}
         className={filter === 'show-all' ? 'filter-on' : 'filter-off'}
       >
@@ -29,6 +35,7 @@ const Filter = ({ dispatch }) => {
       </button>
       <button
         type="button"
+        aria-pressed={filter === 'show-complete'}
         onClick={handleShowComplete}
         className={
           filter === 'show-complete' ? 'filter-on' : 'filter-off'
@@ -38,6 +45,7 @@ const Filter = ({ dispatch }) => {
       </button>
       <button
         type="button"
+        aria-pressed={filter === 'show-incomplete'}
         onClick={handleShowIncomplete}
         className={
           filter === 'show-incomplete' ? 'filter-on' : 'filter-off'

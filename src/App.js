@@ -50,10 +50,10 @@ function App() {
     <Wrapper>
       <TodoContext.Provider value={dispatchTodos}>
         <Header>
-          <div
+          <nav
             style={{
-              height: '30px',
               display: 'flex',
+              height: '30px',
             }}
           >
             <span>
@@ -69,7 +69,7 @@ function App() {
               />
               <span className="slider round" />
             </label>
-          </div>
+          </nav>
           <Filter dispatch={dispatchFilter} />
           <h1
             style={{
