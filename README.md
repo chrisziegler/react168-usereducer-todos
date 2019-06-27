@@ -4,6 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 <img src="public/images/books.jpg" width=700 alt="Panorama of library books"/>
 
+## Tech Stack:
+
+1. React 16.8.6
+
+- styled-components
+- react-transition-group
+- serve
+
 ### Available Scripts
 
 In the project directory, you can run:
