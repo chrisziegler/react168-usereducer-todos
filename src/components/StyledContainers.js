@@ -38,6 +38,15 @@ export const Header = styled('div')`
   label {
     color: ${props => props.theme.body};
   }
+  h1 {
+    color: white;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+  }
+  nav {
+    display: flex;
+    height: 30px;
+  }
   @media (max-width: 768px) {
     width: 100vw;
     margin: 0;

@@ -24,7 +24,10 @@ const Filter = ({ dispatch }) => {
   };
 
   return (
-    <div className="controls">
+    <nav
+      className="controls"
+      aria-label="display all or complete or incomplete todos"
+    >
       <button
         type="button"
         aria-pressed={filter === 'show-all'}
@@ -53,7 +56,7 @@ const Filter = ({ dispatch }) => {
       >
         Show Incomplete
       </button>
-    </div>
+    </nav>
   );
 };
 

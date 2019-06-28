@@ -28,9 +28,8 @@ function App() {
   }, [todos]);
 
   const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
-
   // filteredTodos gets the value of todos from dispatchTodos reducer
-  // which has an initial value of initialTodos (the mock data)
+  // which has an initial value of initialTodos (localStorage || the mock data)
   // then it looks at the value of filter, which has an initial value of 'ALL'
   const filteredTodos = todos.filter(todo => {
     if (filter === 'ALL') {
@@ -46,16 +45,16 @@ function App() {
     return false;
   });
 
+  // dispatchTodos is available to Consumers TodoList & AddTodo
+  // via useContext() in those components
+  // All components are wrapped with a theme in index.js
+  // Wrapper & Header are styled components
+  // All other props to children provided via props below
   return (
     <Wrapper>
       <TodoContext.Provider value={dispatchTodos}>
         <Header>
-          <nav
-            style={{
-              display: 'flex',
-              height: '30px',
-            }}
-          >
+          <nav>
             <span>
               {themeState.dark
                 ? 'Switch to Light Theme'
@@ -71,15 +70,7 @@ function App() {
             </label>
           </nav>
           <Filter dispatch={dispatchFilter} />
-          <h1
-            style={{
-              color: 'white',
-              fontSize: '2rem',
-              paddingBottom: '1rem',
-            }}
-          >
-            Todo's
-          </h1>
+          <h1>Todo's</h1>
         </Header>
         <TodoList todos={filteredTodos} />
         <AddTodo />
